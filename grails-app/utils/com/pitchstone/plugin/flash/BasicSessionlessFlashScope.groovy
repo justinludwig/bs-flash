@@ -5,8 +5,7 @@ import org.springframework.web.context.request.RequestAttributes as RA
 import org.springframework.web.context.request.RequestContextHolder as RCH
 
 /**
- * FlashScope implementation that stores flash in the bs_flash cookie
- * instead of the servlet session.
+ * FlashScope implementation that stores flash as request attrs.
  */
 class BasicSessionlessFlashScope implements FlashScope {
     static final String NOW = 'BasicSessionlessFlashScope.NOW'
@@ -15,7 +14,7 @@ class BasicSessionlessFlashScope implements FlashScope {
     // FlashScope
 
     void next() {
-        // not needed with cookie-storage
+        // not needed with cookie storage
     }
 
     /**
