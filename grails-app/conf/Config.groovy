@@ -1,5 +1,10 @@
 // configuration for plugin testing - will not be included in the plugin zip
 
+// generate via `openssl rand -base64 30`
+grails.plugin.basicSessionlessFlash.secret.base64 = 'iHC41blonHdZLzOtkjBHQbipRUdhE5NAp+xTgrCA'
+
+grails.app.context = '/'
+
 log4j = {
     // Example of changing the log pattern for the default console
     // appender:

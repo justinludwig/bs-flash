@@ -1,3 +1,7 @@
+
+import com.pitchstone.plugin.flash.BasicSessionlessFlashFilter
+import org.springframework.web.filter.DelegatingFilterProxy
+
 class BasicSessionlessFlashGrailsPlugin {
     // the plugin version
     def version = "0.1"
@@ -7,7 +11,9 @@ class BasicSessionlessFlashGrailsPlugin {
     def dependsOn = [:]
     // resources that are excluded from plugin packaging
     def pluginExcludes = [
-        "grails-app/views/error.gsp"
+        'grails-app/views/error.gsp',
+        'grails-app/*/test/*.*',
+        'web-app/*/test/*.*',
     ]
 
     def title = "Basic Sessionless Flash Plugin" // Headline display name of the plugin
@@ -42,11 +48,28 @@ instead of the servlet session.
 //    def scm = [ url: "http://svn.codehaus.org/grails-plugins/" ]
 
     def doWithWebDescriptor = { xml ->
-        // TODO Implement additions to web.xml (optional), this event occurs before
+        log.info "installing BasicSessionlessFlashFilter"
+
+        xml.filter[0] + {
+            filter {
+                'filter-name' 'basicSessionlessFlashFilter'
+				'filter-class' DelegatingFilterProxy.name
+            }
+        }
+        xml.'filter-mapping'[0] + {
+            'filter-mapping' {
+                'filter-name' 'basicSessionlessFlashFilter'
+                'url-pattern' '/*'
+            }
+        }
     }
 
     def doWithSpring = {
-        // TODO Implement runtime spring config (optional)
+        app = application
+
+		basicSessionlessFlashFilter(BasicSessionlessFlashFilter) {
+			grailsApplication = ref('grailsApplication')
+		}
     }
 
     def doWithDynamicMethods = { ctx ->
