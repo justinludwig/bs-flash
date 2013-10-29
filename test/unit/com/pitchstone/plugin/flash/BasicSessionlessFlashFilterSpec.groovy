@@ -9,7 +9,7 @@ import static com.pitchstone.plugin.flash.BasicSessionlessFlashScope.*
 @Mixin(GrailsUnitTestMixin)
 class BasicSessionlessFlashFilterSpec extends Specification {
     static final long JAN_1_2000 = 946684800000
-    static final long SEP_8_2001 = 1000000000000
+    static final long SEP_9_2001 = 1000000000000
 
     def config = new ConfigObject()
     def filter = new BasicSessionlessFlashFilter(
@@ -277,7 +277,7 @@ class BasicSessionlessFlashFilterSpec extends Specification {
             def response = stubResponse()
             standardConfig()
         when:
-            filter.readFlash request, SEP_8_2001
+            filter.readFlash request, SEP_9_2001
         then:
             request[NOW] == null
     }

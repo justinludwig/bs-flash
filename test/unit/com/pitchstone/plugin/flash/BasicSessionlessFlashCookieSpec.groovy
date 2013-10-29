@@ -10,7 +10,7 @@ import spock.lang.Specification
 @Mixin(GrailsUnitTestMixin)
 class BasicSessionlessFlashCookieSpec extends Specification {
     static final long JAN_1_2000 = 946684800000
-    static final long SEP_8_2001 = 1000000000000
+    static final long SEP_9_2001 = 1000000000000
 
     def macAlgorithm = 'HMACSHA256'
     def secret = new SecretKeySpec('secret'.bytes, macAlgorithm)
@@ -171,7 +171,7 @@ class BasicSessionlessFlashCookieSpec extends Specification {
     def "value with expired date converts to empty flash"() {
         when: cookie.value =
             'foo:bar|2000-01-01T00:00:00.000Z|TZkxbRtstY9s55XgheB0WI1KcCvrBaQqjYELReKiRwY'
-        then: cookie.getFlash(SEP_8_2001) == [:]
+        then: cookie.getFlash(SEP_9_2001) == [:]
     }
     
     def "one-entry value converts to one simple flash entry"() {

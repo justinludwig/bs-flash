@@ -102,7 +102,7 @@ class BasicSessionlessFlashCookie extends Cookie {
      * the specified seconds in the future.
      */
     String formatMaxAge(Integer maxAge, long now = 0) {
-        def ms = maxAge ? (now ?: System.currentTimeMillis()) + maxAge * 1000 : 0
+        def ms = maxAge ? (now ?: System.currentTimeMillis()) + maxAge * 1000l : 0
         formatDate new Date(ms)
     }
 

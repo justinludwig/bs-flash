@@ -65,8 +65,6 @@ instead of the servlet session.
     }
 
     def doWithSpring = {
-        app = application
-
 		basicSessionlessFlashFilter(BasicSessionlessFlashFilter) {
 			grailsApplication = ref('grailsApplication')
 		}
