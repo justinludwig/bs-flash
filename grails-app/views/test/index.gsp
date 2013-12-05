@@ -6,7 +6,7 @@
 </head>
 <body>
     <g:if test="${flash.message != null}">
-        <div class="message">${flash.message}</div>
+        <div class="message">${raw(flash.message)}</div>
     </g:if>
     <h1>BS Flash Test</h1>
     <g:form action="flashGet" method="get">

@@ -1,2 +1,3 @@
+grails-*.zip
+plugin.xml
 target
-web-app/WEB-INF/tld

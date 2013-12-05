@@ -4,7 +4,7 @@ import org.springframework.web.filter.DelegatingFilterProxy
 
 class BasicSessionlessFlashGrailsPlugin {
     // the plugin version
-    def version = "0.1"
+    def version = "0.1-SNAPSHOT"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.0 > *"
     // the other plugins this plugin depends on
@@ -22,7 +22,7 @@ class BasicSessionlessFlashGrailsPlugin {
     def description = '''
 Grails FlashScope implementation that stores flash in a cookie
 instead of the servlet session.
-'''.trim()
+'''
 
     // URL to the plugin's documentation
     def documentation = ''//"http://grails.org/plugin/basic-sessionless-flash"
