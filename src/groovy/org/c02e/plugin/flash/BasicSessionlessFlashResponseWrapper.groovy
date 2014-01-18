@@ -1,4 +1,4 @@
-package com.pitchstone.plugin.flash
+package org.c02e.plugin.flash
 
 import java.io.IOException
 import java.io.PrintWriter

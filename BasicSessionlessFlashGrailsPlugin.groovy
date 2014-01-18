@@ -1,5 +1,5 @@
 
-import com.pitchstone.plugin.flash.BasicSessionlessFlashFilter
+import org.c02e.plugin.flash.BasicSessionlessFlashFilter
 import org.springframework.web.filter.DelegatingFilterProxy
 
 class BasicSessionlessFlashGrailsPlugin {
@@ -18,7 +18,7 @@ class BasicSessionlessFlashGrailsPlugin {
 
     def title = "Basic Sessionless Flash Plugin" // Headline display name of the plugin
     def author = "Justin Ludwig"
-    def authorEmail = "justin@pitchstonetechnology.com"
+    def authorEmail = "justin@codetechnology.org"
     def description = '''
 Grails FlashScope implementation that stores flash in a cookie
 instead of the servlet session.
@@ -34,8 +34,8 @@ instead of the servlet session.
 
     // Details of company behind the plugin (if there is one)
     def organization = [
-        name: "PitchStone Technology",
-        url: "http://www.pitchstonetechnology.com/",
+        name: "CODE Technology",
+        url: "http://codesurvey.org/",
     ]
 
     // Any additional developers beyond the author specified above.
@@ -70,26 +70,4 @@ instead of the servlet session.
 		}
     }
 
-    def doWithDynamicMethods = { ctx ->
-        // TODO Implement registering dynamic methods to classes (optional)
-    }
-
-    def doWithApplicationContext = { applicationContext ->
-        // TODO Implement post initialization spring config (optional)
-    }
-
-    def onChange = { event ->
-        // TODO Implement code that is executed when any artefact that this plugin is
-        // watching is modified and reloaded. The event contains: event.source,
-        // event.application, event.manager, event.ctx, and event.plugin.
-    }
-
-    def onConfigChange = { event ->
-        // TODO Implement code that is executed when the project configuration changes.
-        // The event is the same as for 'onChange'.
-    }
-
-    def onShutdown = { event ->
-        // TODO Implement code that is executed when the application shuts down (optional)
-    }
 }

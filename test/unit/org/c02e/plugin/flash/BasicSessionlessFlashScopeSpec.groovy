@@ -1,7 +1,7 @@
-package com.pitchstone.plugin.flash
+package org.c02e.plugin.flash
 
 import spock.lang.Specification
-import static com.pitchstone.plugin.flash.BasicSessionlessFlashScope.*
+import static org.c02e.plugin.flash.BasicSessionlessFlashScope.*
 
 class BasicSessionlessFlashScopeSpec extends Specification {
 

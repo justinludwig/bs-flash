@@ -1,10 +1,10 @@
-package com.pitchstone.plugin.flash
+package org.c02e.plugin.flash
 
 import grails.test.MockUtils
 import grails.test.mixin.support.GrailsUnitTestMixin
 import org.codehaus.groovy.grails.plugins.codecs.Base64Codec
 import spock.lang.Specification
-import static com.pitchstone.plugin.flash.BasicSessionlessFlashScope.*
+import static org.c02e.plugin.flash.BasicSessionlessFlashScope.*
 
 @Mixin(GrailsUnitTestMixin)
 class BasicSessionlessFlashFilterSpec extends Specification {

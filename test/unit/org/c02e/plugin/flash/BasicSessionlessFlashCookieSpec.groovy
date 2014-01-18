@@ -1,4 +1,4 @@
-package com.pitchstone.plugin.flash
+package org.c02e.plugin.flash
 
 import grails.test.mixin.support.GrailsUnitTestMixin
 import javax.crypto.spec.SecretKeySpec

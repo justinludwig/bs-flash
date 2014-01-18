@@ -1,4 +1,4 @@
-package com.pitchstone.plugin.flash
+package org.c02e.plugin.flash
 
 import org.codehaus.groovy.grails.web.servlet.FlashScope
 import org.springframework.web.context.request.RequestAttributes as RA

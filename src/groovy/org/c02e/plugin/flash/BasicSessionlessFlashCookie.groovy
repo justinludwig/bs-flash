@@ -1,4 +1,4 @@
-package com.pitchstone.plugin.flash
+package org.c02e.plugin.flash
 
 import java.security.Key
 import java.text.SimpleDateFormat

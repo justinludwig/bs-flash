@@ -1,0 +1,15 @@
+Basic Sessionless Flash Plugin
+==============================
+
+This grails plugin provides an implementation of grails' flash scope (`org.codehaus.groovy.grails.web.servlet.FlashScope`) that stores flash entries in a cookie, instead of the servlet session. It works with `String` values only.
+
+To use, generate a random secret, and configure the plugin to use it via the `grails.plugin.basicSessionlessFlash.secret` config property. For example, run this in your shell:
+
+    openssl rand -base64 30
+
+And then use the output (for example, `abc123`) in your `grails-app/conf/Config.groovy` file:
+
+    grails.plugin.basicSessionlessFlash.secret.base64 = 'abc123'
+
+For other config settings, see `org.c02e.plugin.flash.BasicSessionlessFlashFilter`.
+

@@ -1,4 +1,4 @@
-package com.pitchstone.plugin.flash
+package org.c02e.plugin.flash
 
 import java.io.IOException
 import java.security.Key
@@ -13,7 +13,7 @@ import javax.servlet.ServletResponse
 import javax.servlet.http.HttpServletResponse
 import org.codehaus.groovy.grails.web.servlet.GrailsApplicationAttributes as GAA
 import org.springframework.beans.factory.InitializingBean
-import static com.pitchstone.plugin.flash.BasicSessionlessFlashScope.*
+import static org.c02e.plugin.flash.BasicSessionlessFlashScope.*
 
 /**
  * Filter that serializes flash scope to and from a cookie.
