@@ -132,17 +132,17 @@ class BasicSessionlessFlashCookieSpec extends Specification {
             'Zm9vOmJhcnwyMDAwLTAxLTAxVDAwOjAwOjAwLjAwMFp8VFpreGJSdHN0WTlzNTVYZ2hlQjBXSTFLY0N2ckJhUXFqWUVMUmVLaVJ3WQ'
     }
 
-    
+
     def "null value converts to empty flash"() {
         when: cookie.value = null
         then: cookie.flash == [:]
     }
-    
+
     def "empty value converts to empty flash"() {
         when: cookie.value = ''
         then: cookie.flash == [:]
     }
-    
+
     def "value with not enough parts converts to empty flash"() {
         when: cookie.value = 'foo'
         then: cookie.flash == [:]
@@ -153,7 +153,7 @@ class BasicSessionlessFlashCookieSpec extends Specification {
         when: cookie.value = '|'
         then: cookie.flash == [:]
     }
-    
+
     def "value with invalid mac converts to empty flash"() {
         when: cookie.value = 'foo|bar|baz'
         then: cookie.flash == [:]
@@ -167,25 +167,25 @@ class BasicSessionlessFlashCookieSpec extends Specification {
         when: cookie.value = '|||'
         then: cookie.flash == [:]
     }
-    
+
     def "value with expired date converts to empty flash"() {
         when: cookie.value =
             'foo:bar|2000-01-01T00:00:00.000Z|TZkxbRtstY9s55XgheB0WI1KcCvrBaQqjYELReKiRwY'
         then: cookie.getFlash(SEP_9_2001) == [:]
     }
-    
+
     def "one-entry value converts to one simple flash entry"() {
         when: cookie.value =
             'foo:bar|2000-01-01T00:00:00.000Z|TZkxbRtstY9s55XgheB0WI1KcCvrBaQqjYELReKiRwY'
         then: cookie.getFlash(JAN_1_2000) == [foo: 'bar']
     }
-    
+
     def "three-entry value converts to three simple flash entries"() {
         when: cookie.value =
             'foo:bar|x:y|AC:DC|2000-01-01T00:00:00.000Z|UAAxTVW6flm0B5gwGZFBsKF6fV49k+ko+v9oWxV5SmM'
         then: cookie.getFlash(JAN_1_2000) == [foo: 'bar', x: 'y', AC: 'DC']
     }
-    
+
     def "encoded value converts to flash entries with non-alpha chars"() {
         when: cookie.value =
             'yes%3F:we%27re+%231%21*|CPT%C2%AE:%244+%26+75%25|2000-01-01T00:00:00.000Z|X/DvQY3JBxZC+pFDMouHXXXR2X3Cg3Qr1OWHgqxIIUI'
@@ -195,7 +195,7 @@ class BasicSessionlessFlashCookieSpec extends Specification {
     def "flash can be double unencoded"() {
         when:
             cookie.doubleEncode = true
-            cookie.value = 
+            cookie.value =
                 'Zm9vOmJhcnwyMDAwLTAxLTAxVDAwOjAwOjAwLjAwMFp8VFpreGJSdHN0WTlzNTVYZ2hlQjBXSTFLY0N2ckJhUXFqWUVMUmVLaVJ3WQ'
         then: cookie.getFlash(JAN_1_2000) == [foo: 'bar']
     }
@@ -212,7 +212,7 @@ class BasicSessionlessFlashCookieSpec extends Specification {
             cookie.path == '/'
     }
 
-    
+
     def "send basic cookie"() {
         setup:
             def headers = [:]
@@ -225,7 +225,7 @@ class BasicSessionlessFlashCookieSpec extends Specification {
             headers.'Set-Cookie' ==
                 'bs_flash=foo:bar|2000-01-01T00:00:00.000Z|TZkxbRtstY9s55XgheB0WI1KcCvrBaQqjYELReKiRwY; expires=Sat, 01-Jan-2000 00:05:00 GMT'
     }
-    
+
     def "send custom cookie"() {
         setup:
             def headers = [:]

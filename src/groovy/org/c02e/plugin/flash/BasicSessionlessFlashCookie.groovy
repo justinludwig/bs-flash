@@ -126,7 +126,7 @@ class BasicSessionlessFlashCookie extends Cookie {
 
         def encoder = new URLEncoder()
         def parts = []
-        flash.each { k,v -> 
+        flash.each { k,v ->
             parts << encoder.encode(k as String, 'UTF-8')
             parts << ':'
             parts << encoder.encode(v as String, 'UTF-8')
@@ -139,7 +139,7 @@ class BasicSessionlessFlashCookie extends Cookie {
         def value = parts.join('')
         // optionally encode entire cookie with base64
         // to protect against faulty cookie handling
-        doubleEncode ? 
+        doubleEncode ?
             value.getBytes('ASCII').encodeAsBase64().replaceAll(/=+$/, '') : value
     }
 
@@ -202,7 +202,7 @@ class BasicSessionlessFlashCookie extends Cookie {
         def pattern = "yyyy-MM-dd'T'HH:mm:ss${ms?'.SSS':''}'Z'"
         def formatter = new SimpleDateFormat(pattern, Locale.US)
         formatter.timeZone = TimeZone.getTimeZone('GMT')
-        formatter.format date 
+        formatter.format date
     }
 
     /**

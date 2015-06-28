@@ -69,7 +69,7 @@ class BasicSessionlessFlashScope implements FlashScope {
         def now = getAttr(NOW)
         now?.get(key)
     }
-    
+
     boolean isEmpty() {
         !getAttr(NEXT) && !getAttr(NOW)
     }

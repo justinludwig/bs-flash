@@ -53,7 +53,7 @@ class BasicSessionlessFlashFilter implements Filter, InitializingBean {
     void doFilter(ServletRequest rq, ServletResponse rs, FilterChain chain)
     throws IOException, ServletException {
         readFlash rq
-    
+
         rs = new BasicSessionlessFlashResponseWrapper(
         (HttpServletResponse) rs, { clear = false ->
             writeFlash rq, rs, clear

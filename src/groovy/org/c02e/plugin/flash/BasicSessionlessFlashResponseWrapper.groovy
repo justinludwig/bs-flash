@@ -18,7 +18,7 @@ class BasicSessionlessFlashResponseWrapper extends HttpServletResponseWrapper {
         super(rs)
         this.writeFlash = writeFlash
     }
-    
+
     ServletOutputStream getOutputStream() throws IOException {
         writeFlash true
         super.outputStream
